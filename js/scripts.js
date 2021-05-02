@@ -1,13 +1,13 @@
 /*!
-* Start Bootstrap - Resume v6.0.3 (https://startbootstrap.com/theme/resume)
-* Copyright 2013-2021 Start Bootstrap
-* Licensed under MIT (https://github.com/StartBootstrap/startbootstrap-resume/blob/master/LICENSE)
-*/
-(function ($) {
+ * Start Bootstrap - Resume v6.0.3 (https://startbootstrap.com/theme/resume)
+ * Copyright 2013-2021 Start Bootstrap
+ * Licensed under MIT (https://github.com/StartBootstrap/startbootstrap-resume/blob/master/LICENSE)
+ */
+(function($) {
     "use strict"; // Start of use strict
 
     // Smooth scrolling using anime.js
-    $('a.js-scroll-trigger[href*="#"]:not([href="#"])').on('click', function () {
+    $('a.js-scroll-trigger[href*="#"]:not([href="#"])').on('click', function() {
         if (
             location.pathname.replace(/^\//, "") ==
             this.pathname.replace(/^\//, "") &&
@@ -30,7 +30,7 @@
     });
 
     // Closes responsive menu when a scroll trigger link is clicked
-    $(".js-scroll-trigger").on('click', function () {
+    $(".js-scroll-trigger").on('click', function() {
         $(".navbar-collapse").collapse("hide");
     });
 
@@ -38,5 +38,11 @@
     $("body").scrollspy({
         target: "#mainNav"
     });
+
+    $.ajax("http://localhost:7071/api/visitcount")
+        .done(function(data) {
+            console.log("Data Saved: " + data.count);
+            $("#visitor-count").html(data.count)
+        });
 
 })(jQuery); // End of use strict
