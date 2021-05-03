@@ -39,7 +39,7 @@
         target: "#mainNav"
     });
 
-    $.ajax("http://localhost:7071/api/visitcount")
+    $.ajax("https://func-resume-prod-001.azurewebsites.net/api/VisitCount?code=yqdn9LG6BFhYQ26Gwpv0XZqJMHwMMC3YTmvnQRJvEJcY9CcuUcVvog==")
         .done(function(data) {
             console.log("Data Saved: " + data.count);
             $("#visitor-count").html(data.count)
